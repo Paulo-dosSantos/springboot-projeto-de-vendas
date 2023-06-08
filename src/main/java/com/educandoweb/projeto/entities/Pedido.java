@@ -103,7 +103,10 @@ public class Pedido implements Serializable {
 		this.pagamento = pagamento;
 	}
 	
-
+	public double getTotal() {
+		
+		return items.stream().map(x->x.getSubTotal()).reduce(0.0, (x,y)->x+y);
+	}
 	
 
 	public Set<ItemDePedido> getItems() {
